@@ -2,7 +2,6 @@ package it.eng.bollettini.model;
 
 
 public class Drtbrpol {
-
 	private Long ndg;
 	private Long rapport;
 	private Long dataAtt;
