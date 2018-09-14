@@ -95,9 +95,9 @@ public class TriturinoCopy {
 						}
 						if(numero1.intValue()>numeroOccurs.intValue()) {
 							names1.add(nome1.toLowerCase().replace("-","").trim());
-							types1.add(tipo1.toLowerCase().replace("-","").trim());
+							types1.add(tipo1);
 						}else {
-							names.add(nome1.replace("-", "").toLowerCase());
+							names.add(nome1.replace("-", "").toLowerCase().trim());
 							types.add(tipo1);
 							fine=true;
 							inOccurs=false;
@@ -116,16 +116,15 @@ public class TriturinoCopy {
 							fine=false;
 						}
 					}
-				}
-				if (line.contains("PIC")){
+				}else if (line.contains("PIC")){
 					if(line.charAt(6)!='*') {
 						String lineArr[]=line.substring(7).trim().split(" ");
 						nome=lineArr[1];
 						if(line.substring(line.indexOf("PIC")+3).replace("S", "").trim().startsWith("9")) {
+							tipo="Long";
 							if(line.substring(line.indexOf("PIC")+3).replace("S", "").trim().replace("VALUE", "").contains("V")) {
 								tipo="Double";
 							}
-							tipo="Long";
 						}
 						if(line.substring(line.indexOf("PIC")+3).replace("S", "").trim().startsWith("X")) {
 							tipo="String";
